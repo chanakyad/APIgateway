@@ -14,7 +14,7 @@ sh 'docker build -t apigateway .'
 sh 'docker images'
 stage("Deploy"){
 sh 'docker rm -f apigateway||true'
-sh ' docker run -d -p 9090:9090 --name apigateway apigateway'
+sh ' docker run -itd -p 9090:9090 --name apigateway apigateway'
 }
 }
 }
