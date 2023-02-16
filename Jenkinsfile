@@ -3,6 +3,12 @@ stage("Git Clone"){
 
 git branch: 'main', url: 'https://github.com/chanakyad/APIgateway.git'
 }
+stage ("Maven clean&install")
+  {
+    sh "mvn clean"
+    sh "mvn install"
+    sh "ls"
+  }
 stage("Docker build"){
 sh 'docker build -t apigateway .'
 sh 'docker images'
